@@ -11,6 +11,6 @@ export default function MyApp({ Component, pageProps }) {
 }
 
 MyApp.propTypes = {
-  Component: PropTypes.node,
-  pageProps: PropTypes.oneOf(PropTypes.any),
+  Component: PropTypes.func,
+  pageProps: PropTypes.any,
 };
