@@ -82,8 +82,7 @@
             "styled-components",
             {
               "ssr": true,
-              "displayName": true,
-              "preprocess": false
+              "displayName": true
             }
           ]
         ]
@@ -97,8 +96,7 @@
             "styled-components",
             {
               "ssr": true,
-              "displayName": true,
-              "preprocess": false
+              "displayName": true
             }
           ]
         ]
@@ -119,8 +117,7 @@
             "styled-components",
             {
               "ssr": true,
-              "displayName": true,
-              "preprocess": false
+              "displayName": true
             }
           ]
         ]

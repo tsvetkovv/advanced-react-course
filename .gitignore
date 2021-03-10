@@ -7,3 +7,5 @@ layout.md
 variables.env
 *.env
 .keystone
+**/.idea/workspace.xml
+**/.idea/tasks.xml
