@@ -6,6 +6,7 @@ import {
 } from '@keystone-next/keystone/session';
 import { createAuth } from '@keystone-next/auth';
 import { User } from './schemas/User';
+import { Product } from './schemas/Product';
 
 if (!process.env.DATABASE_URL) {
   throw new Error('No DATABASE_URL');
@@ -50,6 +51,7 @@ export default withAuth(
     },
     lists: createSchema({
       User,
+      Product,
     }),
     ui: {
       // Show the UI only for people who pass this test
