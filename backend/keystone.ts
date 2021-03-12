@@ -4,6 +4,7 @@ import {
   statelessSessions,
   withItemData,
 } from '@keystone-next/keystone/session';
+import { createAuth } from '@keystone-next/auth';
 import { User } from './schemas/User';
 
 if (!process.env.DATABASE_URL) {
@@ -21,22 +22,38 @@ const sessionConfig = {
   secret: process.env.COOKIE_SECRET,
 };
 
-export default config({
-  server: {
-    cors: {
-      origin: [process.env.FRONTEND_URL],
-      credentials: true,
-    },
-  },
-  session: withItemData(statelessSessions(sessionConfig)),
-  db: {
-    adapter: 'mongoose',
-    url: databaseURL,
-  },
-  lists: createSchema({
-    User,
-  }),
-  ui: {
-    isAccessAllowed: (context) => true,
+const { withAuth } = createAuth({
+  listKey: 'User',
+  identityField: 'email',
+  secretField: 'password',
+  initFirstItem: {
+    fields: ['name', 'email', 'password'],
+    // TODO Add in initial roles here
   },
 });
+
+export default withAuth(
+  config({
+    server: {
+      cors: {
+        origin: [process.env.FRONTEND_URL],
+        credentials: true,
+      },
+    },
+    session: withItemData(statelessSessions(sessionConfig), {
+      // Graphql query
+      User: 'id',
+    }),
+    db: {
+      adapter: 'mongoose',
+      url: databaseURL,
+    },
+    lists: createSchema({
+      User,
+    }),
+    ui: {
+      // Show the UI only for people who pass this test
+      isAccessAllowed: ({ session }) => session && 'data' in session,
+    },
+  })
+);
