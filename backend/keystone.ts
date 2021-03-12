@@ -4,6 +4,7 @@ import {
   statelessSessions,
   withItemData,
 } from '@keystone-next/keystone/session';
+import { User } from './schemas/User';
 
 if (!process.env.DATABASE_URL) {
   throw new Error('No DATABASE_URL');
@@ -32,7 +33,9 @@ export default config({
     adapter: 'mongoose',
     url: databaseURL,
   },
-  lists: createSchema({}),
+  lists: createSchema({
+    User,
+  }),
   ui: {
     isAccessAllowed: (context) => true,
   },
