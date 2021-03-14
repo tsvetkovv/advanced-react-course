@@ -50,7 +50,7 @@ const InnerStyles = styled.div`
   padding: 2rem;
 `;
 
-export default function Page({ children }) {
+export default function Page({ children }: { children: React.ReactNode}) {
   return (
     <div>
       <GlobalStyles />

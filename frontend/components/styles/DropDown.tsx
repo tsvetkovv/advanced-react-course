@@ -1,5 +1,9 @@
 import styled, { keyframes } from 'styled-components';
 
+export interface DropDownProps {
+  readonly highlighted: boolean;
+}
+
 const DropDown = styled.div`
   position: absolute;
   width: 100%;
@@ -7,7 +11,7 @@ const DropDown = styled.div`
   border: 1px solid var(--lightGray);
 `;
 
-const DropDownItem = styled.div`
+const DropDownItem = styled.div<DropDownProps>`
   border-bottom: 1px solid var(--lightGray);
   background: ${(props) => (props.highlighted ? '#f7f7f7' : 'white')};
   padding: 1rem;
@@ -24,7 +28,7 @@ const DropDownItem = styled.div`
 
 const glow = keyframes`
   from {
-    box-shadow: 0 0 0px yellow;
+    box-shadow: 0 0 0 yellow;
   }
 
   to {

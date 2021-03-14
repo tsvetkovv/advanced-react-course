@@ -1,11 +1,11 @@
-import { ApolloClient, ApolloLink, InMemoryCache } from '@apollo/client';
+import { ApolloClient, ApolloLink, InMemoryCache, NormalizedCacheObject } from '@apollo/client';
 import { onError } from '@apollo/link-error';
 import { getDataFromTree } from '@apollo/client/react/ssr';
 import { createUploadLink } from 'apollo-upload-client';
-import withApollo from 'next-with-apollo';
+import withApollo, { InitApolloClient } from 'next-with-apollo';
 import { endpoint, prodEndpoint } from '../config';
 
-function createClient({ headers, initialState }) {
+const createClient: InitApolloClient<NormalizedCacheObject> = ({ headers, initialState }) => {
   return new ApolloClient({
     link: ApolloLink.from([
       onError(({ graphQLErrors, networkError }) => {

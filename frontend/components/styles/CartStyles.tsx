@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-const CartStyles = styled.div`
+export interface CartStylesProps {
+  open: boolean;
+}
+
+const CartStyles = styled.div<CartStylesProps>`
   padding: 20px;
   position: relative;
   background: white;
