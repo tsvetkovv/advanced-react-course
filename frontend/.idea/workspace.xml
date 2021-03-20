@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ea1a1040-2e73-4573-a3c3-d22f44a06085" name="Default Changelist" comment="add eslint and prettier">
+      <change afterPath="$PROJECT_DIR$/../backend/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.eslintrc.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.prettierignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ErrorMessage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ErrorMessage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Nav.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Nav.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/styles/CartStyles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/styles/CartStyles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/styles/CloseButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/styles/CloseButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/styles/DropDown.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/styles/DropDown.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/styles/Form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/styles/Form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/styles/ItemStyles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/styles/ItemStyles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/styles/NavStyles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/styles/NavStyles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/styles/OrderItemStyles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/styles/OrderItemStyles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/styles/OrderStyles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/styles/OrderStyles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/styles/PaginationStyles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/styles/PaginationStyles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/styles/PriceTag.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/styles/PriceTag.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/styles/SickButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/styles/SickButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/styles/Supreme.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/styles/Supreme.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/styles/Table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/styles/Table.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/styles/Title.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/styles/Title.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/styles/nprogress.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/styles/nprogress.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/withData.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/lib/withData.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_document.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_document.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/orders.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/orders.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/products.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/products.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/sell.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/sell.tsx" afterDir="false" />
+    </list>
+    <list id="240afec7-4874-427d-acc8-cbe3d0fe3bc6" name="ts" comment="migrate frontend to typescript" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitRewordedCommitMessages">
+    <option name="onto" value="8ae008c9bff05acdf62000617c46a92b24c96771" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="1pTbREbGJiqSES6U7CVFqWDv6vE" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="TypeScript" />
+    <property name="jsx.switch.disabled" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../backend" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/../backend/node_modules/typescript/lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../backend" />
+      <recent name="$PROJECT_DIR$/pages" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.FE dev">
+    <configuration name="BE dev" type="js.build_tools.npm" temporary="true">
+      <package-json value="$PROJECT_DIR$/../backend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="FE dev" type="js.build_tools.npm" temporary="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="lint" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="lint" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="seed-data" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/../backend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="seed-data" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="type-check" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="type-check" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="npm.FE dev" />
+      <item itemvalue="npm.BE dev" />
+      <item itemvalue="npm.seed-data" />
+      <item itemvalue="npm.type-check" />
+      <item itemvalue="npm.lint" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.FE dev" />
+        <item itemvalue="npm.BE dev" />
+        <item itemvalue="npm.lint" />
+        <item itemvalue="npm.type-check" />
+        <item itemvalue="npm.seed-data" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager">
+    <option name="remove_strategy" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ea1a1040-2e73-4573-a3c3-d22f44a06085" name="Default Changelist" comment="" />
+      <changelist id="240afec7-4874-427d-acc8-cbe3d0fe3bc6" name="ts" comment="" />
+      <created>1615210018517</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1615210018517</updated>
+      <workItem from="1615210020377" duration="1895000" />
+      <workItem from="1615213868908" duration="1801000" />
+      <workItem from="1615228597150" duration="1937000" />
+      <workItem from="1615277568473" duration="2530000" />
+      <workItem from="1615400249175" duration="5345000" />
+      <workItem from="1615534230031" duration="3898000" />
+      <workItem from="1615646498025" duration="29000" />
+      <workItem from="1615646554245" duration="16094000" />
+      <workItem from="1616232375275" duration="4358000" />
+      <workItem from="1616239527943" duration="2881000" />
+    </task>
+    <task id="LOCAL-00001" summary="add pages and nav components">
+      <created>1615230501183</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1615230501183</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add header">
+      <created>1615400531789</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1615400531789</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add progress bar">
+      <created>1615401349625</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1615401349625</updated>
+    </task>
+    <task id="LOCAL-00004" summary="fix server-client styles inconsistency">
+      <created>1615402271497</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1615402271497</updated>
+    </task>
+    <task id="LOCAL-00005" summary="drop files from gitignore">
+      <created>1615403494417</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1615403494417</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add base keystone config">
+      <created>1615405442796</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1615405442796</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add User schema">
+      <created>1615535559965</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1615535559965</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add auth">
+      <created>1615536604110</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1615536604110</updated>
+    </task>
+    <task id="LOCAL-00009" summary="add Product">
+      <created>1615540349012</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1615540349012</updated>
+    </task>
+    <task id="LOCAL-00010" summary="add ProductImage">
+      <created>1615648526723</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1615648526723</updated>
+    </task>
+    <task id="LOCAL-00011" summary="seed data">
+      <created>1615648748249</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1615648748249</updated>
+    </task>
+    <task id="LOCAL-00012" summary="setup Apollo client">
+      <created>1615745702918</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1615745702918</updated>
+    </task>
+    <task id="LOCAL-00013" summary="ts">
+      <created>1615754602077</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1615754602077</updated>
+    </task>
+    <task id="LOCAL-00014" summary="migrate frontend to typescript">
+      <created>1615756880435</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1615756880435</updated>
+    </task>
+    <task id="LOCAL-00015" summary="fixup! migrate frontend to typescript">
+      <created>1615757416935</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1615757416935</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/../.." />
+    </ignored-roots>
+    <MESSAGE value="add pages and nav components" />
+    <MESSAGE value="add header" />
+    <MESSAGE value="add progress bar" />
+    <MESSAGE value="fix server-client styles inconsistency" />
+    <MESSAGE value="drop files from gitignore" />
+    <MESSAGE value="add base keystone config" />
+    <MESSAGE value="add User schema" />
+    <MESSAGE value="add auth" />
+    <MESSAGE value="add Product" />
+    <MESSAGE value="add ProductImage" />
+    <MESSAGE value="seed data" />
+    <MESSAGE value="setup Apollo client" />
+    <MESSAGE value="ts" />
+    <MESSAGE value="migrate frontend to typescript" />
+    <MESSAGE value="fixup! migrate frontend to typescript" />
+    <MESSAGE value="add eslint and prettier" />
+    <option name="LAST_COMMIT_MESSAGE" value="add eslint and prettier" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

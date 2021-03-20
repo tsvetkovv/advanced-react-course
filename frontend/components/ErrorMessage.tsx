@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import PropTypes from 'prop-types';
-import { ErrorResponse } from '@apollo/link-error';
+import PropTypes from "prop-types";
+import { ErrorResponse } from "@apollo/link-error";
 
 const ErrorStyles = styled.div`
   padding: 2rem;
@@ -18,14 +18,14 @@ const ErrorStyles = styled.div`
   }
 `;
 
-const DisplayError = ({ error }: { error: ErrorResponse}) => {
+const DisplayError = ({ error }: { error: ErrorResponse }) => {
   if (!error?.response) return null;
   if (error.graphQLErrors) {
-    return error.graphQLErrors.map((error, i) => (
-      <ErrorStyles key={i}>
+    return error.graphQLErrors.map((e) => (
+      <ErrorStyles key={e.message}>
         <p data-test="graphql-error">
           <strong>Shoot!</strong>
-          {error.message.replace('GraphQL error: ', '')}
+          {e.message.replace("GraphQL error: ", "")}
         </p>
       </ErrorStyles>
     ));
@@ -34,18 +34,28 @@ const DisplayError = ({ error }: { error: ErrorResponse}) => {
     <ErrorStyles>
       <p data-test="graphql-error">
         <strong>Shoot!</strong>
-        {error.networkError?.message?.replace('GraphQL error: ', '')}
+        {error.networkError?.message?.replace("GraphQL error: ", "")}
       </p>
     </ErrorStyles>
   );
 };
 
 DisplayError.defaultProps = {
-  error: {},
+  error: null,
 };
 
 DisplayError.propTypes = {
-  error: PropTypes.object,
+  error: PropTypes.shape({
+    response: PropTypes.objectOf(PropTypes.object),
+    graphQLErrors: PropTypes.arrayOf(
+      PropTypes.shape({
+        message: PropTypes.string.isRequired,
+      })
+    ),
+    networkError: PropTypes.shape({
+      message: PropTypes.string,
+    }),
+  }),
 };
 
 export default DisplayError;

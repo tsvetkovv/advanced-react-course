@@ -1,6 +1,7 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 export default function Nav() {
+  // noinspection HtmlUnknownTarget
   return (
     <nav>
       <Link href="/products">Products</Link>

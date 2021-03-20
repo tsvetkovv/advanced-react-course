@@ -24,8 +24,9 @@ class MyApp extends App<
   PageProps
 > {
   static propTypes = {
-    Component: PropTypes.func,
-    pageProps: PropTypes.any,
+    Component: PropTypes.func.isRequired,
+    pageProps: PropTypes.objectOf(PropTypes.object).isRequired,
+    // eslint-disable-next-line react/forbid-prop-types
     apollo: PropTypes.object.isRequired,
   };
 
