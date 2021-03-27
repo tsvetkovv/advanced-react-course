@@ -13,20 +13,30 @@ function FormItem({
   value: number | string | undefined;
   label: string;
   placeholder: string;
-  type: "text" | "number";
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  type: "text" | "number" | "file" | "textarea";
+  onChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
 }) {
   return (
     <label htmlFor={name}>
       {label}
-      <input
-        type={type}
-        id={name}
-        name={name}
-        placeholder={placeholder || label}
-        value={value}
-        onChange={onChange}
-      />
+      {type === "textarea" ? (
+        <textarea
+          id={name}
+          name={name}
+          placeholder={placeholder || label}
+          value={value}
+          onChange={onChange}
+        />
+      ) : (
+        <input
+          type={type}
+          id={name}
+          name={name}
+          placeholder={placeholder || label}
+          value={value}
+          onChange={onChange}
+        />
+      )}
     </label>
   );
 }
@@ -36,7 +46,7 @@ FormItem.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   label: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
-  type: PropTypes.oneOf(["text", "number"]),
+  type: PropTypes.oneOf(["text", "number", "file", "textarea"]),
   onChange: PropTypes.func.isRequired,
 };
 

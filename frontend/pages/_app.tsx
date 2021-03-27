@@ -25,7 +25,7 @@ class MyApp extends App<
 > {
   static propTypes = {
     Component: PropTypes.func.isRequired,
-    pageProps: PropTypes.objectOf(PropTypes.object).isRequired,
+    pageProps: PropTypes.objectOf(PropTypes.object),
     // eslint-disable-next-line react/forbid-prop-types
     apollo: PropTypes.object.isRequired,
   };
@@ -48,7 +48,7 @@ class MyApp extends App<
       <ApolloProvider client={apollo}>
         <Page>
           {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-          <Component {...pageProps} />
+          <Component {...(pageProps || {})} />
         </Page>
       </ApolloProvider>
     );

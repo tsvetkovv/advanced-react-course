@@ -2,13 +2,17 @@ import { ChangeEvent, useState } from "react";
 
 function getValueBasedOnType({
   target,
-}: ChangeEvent<HTMLInputElement>): string | number | [FileList] | null {
+}: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>):
+  | string
+  | number
+  | File
+  | null {
   if (target.type === "number") {
     return parseFloat(target.value);
   }
   if (target.type === "file") {
-    if (target.files !== null) {
-      return [target.files];
+    if ("files" in target && target.files !== null && target.files[0]) {
+      return target.files[0];
     }
     return null;
   }
@@ -20,12 +24,16 @@ export default function useForm<TData extends { [k: string]: any }>(
   initial = {} as Partial<TData>
 ): {
   inputs: Partial<TData>;
-  handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleChange: (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
   resetForm: () => void;
   clearForm: () => void;
 } {
   const [inputs, setInputs] = useState(initial);
-  function handleChange(e: ChangeEvent<HTMLInputElement>) {
+  function handleChange(
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
     setInputs({
       ...inputs,
       [e.target.name]: getValueBasedOnType(e),
