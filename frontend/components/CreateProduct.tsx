@@ -1,16 +1,23 @@
 import gql from "graphql-tag";
 import { useMutation } from "@apollo/client";
 import { FormEvent } from "react";
+import { useRouter } from "next/router";
 import useForm from "../lib/useForm";
 import FormItem from "./FormItem";
 import Form from "./styles/Form";
 import DisplayError from "./ErrorMessage";
+import { ALL_PRODUCTS_QUERY } from "./Products";
+import { Product } from "../models/Product";
 
 interface ProductForm {
   image: string;
   name: string;
   price: number;
   description: string;
+}
+
+interface ProductMutationResult {
+  createProduct: Pick<Product, 'id'>
 }
 // TODO avoid passing photo if there is no $image
 const CREATE_PRODUCT_MUTATION = gql`
@@ -46,14 +53,22 @@ function CreateProduct() {
   const [createProduct, {
     loading,
     error
-  }] = useMutation(CREATE_PRODUCT_MUTATION);
+  }] = useMutation<ProductMutationResult>(CREATE_PRODUCT_MUTATION, {
+    refetchQueries: [{ query: ALL_PRODUCTS_QUERY}]
+  });
+  const router = useRouter();
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    await createProduct({
+    const res = await createProduct({
       variables: inputs
     });
-    clearForm();
+    if (!error && res?.data?.createProduct) {
+      clearForm();
+      await router.push({
+        pathname: `/product/${res.data.createProduct.id}`
+      })
+    }
   }
 
   return (
