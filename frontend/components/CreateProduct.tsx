@@ -1,6 +1,10 @@
+import gql from "graphql-tag";
+import { useMutation } from "@apollo/client";
+import { FormEvent } from "react";
 import useForm from "../lib/useForm";
 import FormItem from "./FormItem";
 import Form from "./styles/Form";
+import DisplayError from "./ErrorMessage";
 
 interface ProductForm {
   image: string;
@@ -8,21 +12,56 @@ interface ProductForm {
   price: number;
   description: string;
 }
+// TODO avoid passing photo if there is no $image
+const CREATE_PRODUCT_MUTATION = gql`
+    mutation CREATE_PRODUCT_MUTATION(
+        $name: String!
+        $description: String!
+        $price: Int!
+        $image: Upload
+    ) {
+        createProduct(data: {
+            name: $name
+            description: $description
+            price: $price
+            status: "AVAILABLE"
+            photo: {
+                create: {
+                    image: $image,
+                    altText: $name
+                }
+            }
+        }) {
+            id
+        }
+    }
+`
 
 function CreateProduct() {
-  const { inputs, handleChange } = useForm<ProductForm>({
+  const { inputs, handleChange, clearForm } = useForm<ProductForm>({
     name: "Nice Shoes",
     price: 123,
-    description: "There are the best shoes!",
+    description: "There are the best shoes!"
   });
+  const [createProduct, {
+    loading,
+    error
+  }] = useMutation(CREATE_PRODUCT_MUTATION);
+
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    await createProduct({
+      variables: inputs
+    });
+    clearForm();
+  }
+
   return (
     <Form
-      onSubmit={(e) => {
-        e.preventDefault();
-        console.log(inputs);
-      }}
+      onSubmit={(e) => onSubmit(e)}
     >
-      <fieldset>
+      <DisplayError error={error} />
+      <fieldset disabled={loading} aria-busy={loading}>
         <FormItem
           type="file"
           name="image"

@@ -9,7 +9,7 @@ import formatMoney from "../lib/formatMoney";
 function Product({ product }: { product: ProductType }) {
   return (
     <ItemStyles>
-      <img src={product.photo?.image.publicUrlTransformed} alt={product.name} />
+      <img src={product.photo?.image?.publicUrlTransformed} alt={product.name} />
       <Title>
         <Link href={`/products/${product.id}`}>{product.name}</Link>
       </Title>
@@ -28,7 +28,7 @@ Product.propTypes = {
     photo: PropTypes.shape({
       image: PropTypes.shape({
         publicUrlTransformed: PropTypes.string.isRequired,
-      }).isRequired,
+      }),
     }),
   }).isRequired,
 };

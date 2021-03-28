@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import PropTypes from "prop-types";
-import { ErrorResponse } from "@apollo/link-error";
+import { ApolloError } from "@apollo/client";
 
 const ErrorStyles = styled.div`
   padding: 2rem;
@@ -18,17 +18,19 @@ const ErrorStyles = styled.div`
   }
 `;
 
-const DisplayError = ({ error }: { error: ErrorResponse }) => {
-  if (!error?.response) return null;
+const DisplayError = ({ error }: { error: ApolloError }) => {
+  if (!error || !error.message) {
+    return null;
+  }
   if (error.graphQLErrors) {
-    return error.graphQLErrors.map((e) => (
+    return <>{error.graphQLErrors.map((e) => (
       <ErrorStyles key={e.message}>
         <p data-test="graphql-error">
           <strong>Shoot!</strong>
           {e.message.replace("GraphQL error: ", "")}
         </p>
       </ErrorStyles>
-    ));
+    ))}</>;
   }
   return (
     <ErrorStyles>
@@ -46,6 +48,7 @@ DisplayError.defaultProps = {
 
 DisplayError.propTypes = {
   error: PropTypes.shape({
+    message: PropTypes.string,
     response: PropTypes.objectOf(PropTypes.object),
     graphQLErrors: PropTypes.arrayOf(
       PropTypes.shape({
