@@ -3,4 +3,5 @@ export interface Photo {
   image: {
     publicUrlTransformed: string;
   };
+  altText?: string;
 }
