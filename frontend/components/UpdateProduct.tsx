@@ -93,21 +93,21 @@ function UpdateProduct({ id }: { id: string }) {
         <FormItem
           name="name"
           label="Name"
-          value={inputs.name}
+          value={inputs.name || ""}
           onChange={handleChange}
         />
         <FormItem
           name="price"
           label="Price"
           type="number"
-          value={inputs.price}
+          value={inputs.price || 0}
           onChange={handleChange}
         />
         <FormItem
           name="description"
           label="Description"
           type="textarea"
-          value={inputs.description}
+          value={inputs.description || ""}
           onChange={handleChange}
         />
 

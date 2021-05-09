@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 
 function getValueBasedOnType({
   target,
@@ -31,6 +31,11 @@ export default function useForm<TData extends { [k: string]: any }>(
   clearForm: () => void;
 } {
   const [inputs, setInputs] = useState(initial);
+  const initialValues = Object.values(initial).join("");
+  useEffect(() => {
+    setInputs(initial);
+  }, [initialValues]);
+
   function handleChange(
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) {
