@@ -8,7 +8,7 @@ import PaginationStyles from "./styles/PaginationStyles";
 import DisplayError from "./ErrorMessage";
 import { perPage } from "../config";
 
-interface PaginationQueryData {
+export interface PaginationQueryData {
   meta: {
     count: number;
   };

@@ -9,6 +9,7 @@ import { getDataFromTree } from "@apollo/client/react/ssr";
 import { createUploadLink } from "apollo-upload-client";
 import withApollo, { InitApolloClient } from "next-with-apollo";
 import { endpoint, prodEndpoint } from "../config";
+import paginationField from "./paginationField";
 
 const createClient: InitApolloClient<NormalizedCacheObject> = ({
   headers,
@@ -19,12 +20,14 @@ const createClient: InitApolloClient<NormalizedCacheObject> = ({
       onError(({ graphQLErrors, networkError }) => {
         if (graphQLErrors) {
           graphQLErrors.forEach(({ message, locations, path }) =>
+            // eslint-disable-next-line no-console
             console.log(
               `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
             )
           );
         }
         if (networkError) {
+          // eslint-disable-next-line no-console
           console.log(
             `[Network error]: ${networkError}. Backend is unreachable. Is it running?`
           );
@@ -44,8 +47,7 @@ const createClient: InitApolloClient<NormalizedCacheObject> = ({
       typePolicies: {
         Query: {
           fields: {
-            // TODO: We will add this together!
-            // allProducts: paginationField(),
+            allProducts: paginationField(),
           },
         },
       },
