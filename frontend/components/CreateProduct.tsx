@@ -41,12 +41,10 @@ function CreateProduct() {
     price: 123,
     description: "There are the best shoes!",
   });
-  const [
-    createProduct,
-    { loading, error },
-  ] = useMutation<ProductMutationResult>(CREATE_PRODUCT_MUTATION, {
-    refetchQueries: [{ query: ALL_PRODUCTS_QUERY }],
-  });
+  const [createProduct, { loading, error }] =
+    useMutation<ProductMutationResult>(CREATE_PRODUCT_MUTATION, {
+      refetchQueries: [{ query: ALL_PRODUCTS_QUERY }],
+    });
   const router = useRouter();
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {

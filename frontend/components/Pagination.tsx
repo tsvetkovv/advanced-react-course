@@ -23,9 +23,8 @@ export const PAGINATION_QUERY = gql`
 `;
 
 function Pagination({ page }: { page: number }) {
-  const { error, loading, data } = useQuery<PaginationQueryData>(
-    PAGINATION_QUERY
-  );
+  const { error, loading, data } =
+    useQuery<PaginationQueryData>(PAGINATION_QUERY);
   if (loading) return <p>Loading...</p>;
   if (error || !data) return <DisplayError error={error} />;
   const total = data.meta.count;

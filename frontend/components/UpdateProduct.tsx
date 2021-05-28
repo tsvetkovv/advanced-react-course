@@ -59,15 +59,13 @@ function UpdateProduct({ id }: { id: string }) {
     }
   );
 
-  const [
-    updateProduct,
-    { loading: updateLoading, error: updateError },
-  ] = useMutation<ProductMutationResult, UpdateVariables>(
-    UPDATE_PRODUCT_MUTATION,
-    {
-      refetchQueries: [{ query: ALL_PRODUCTS_QUERY }],
-    }
-  );
+  const [updateProduct, { loading: updateLoading, error: updateError }] =
+    useMutation<ProductMutationResult, UpdateVariables>(
+      UPDATE_PRODUCT_MUTATION,
+      {
+        refetchQueries: [{ query: ALL_PRODUCTS_QUERY }],
+      }
+    );
 
   const { inputs, handleChange } = useForm<ProductForm>(data?.Product);
 

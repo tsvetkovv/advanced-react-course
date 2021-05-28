@@ -23,14 +23,18 @@ const DisplayError = ({ error }: { error: ApolloError }) => {
     return null;
   }
   if (error.graphQLErrors) {
-    return <>{error.graphQLErrors.map((e) => (
-      <ErrorStyles key={e.message}>
-        <p data-test="graphql-error">
-          <strong>Shoot!</strong>
-          {e.message.replace("GraphQL error: ", "")}
-        </p>
-      </ErrorStyles>
-    ))}</>;
+    return (
+      <>
+        {error.graphQLErrors.map((e) => (
+          <ErrorStyles key={e.message}>
+            <p data-test="graphql-error">
+              <strong>Shoot!</strong>
+              {e.message.replace("GraphQL error: ", "")}
+            </p>
+          </ErrorStyles>
+        ))}
+      </>
+    );
   }
   return (
     <ErrorStyles>

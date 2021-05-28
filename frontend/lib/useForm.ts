@@ -25,6 +25,7 @@ export default function useForm<TData extends { [k: string]: any }>(
 ): {
   inputs: Partial<TData>;
   handleChange: (
+    // eslint-disable-next-line no-unused-vars
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
   resetForm: () => void;

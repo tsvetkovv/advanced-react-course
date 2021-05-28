@@ -5,6 +5,7 @@ import {
   NormalizedCacheObject,
 } from "@apollo/client";
 import { onError } from "@apollo/link-error";
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { getDataFromTree } from "@apollo/client/react/ssr";
 import { createUploadLink } from "apollo-upload-client";
 import withApollo, { InitApolloClient } from "next-with-apollo";
