@@ -20,7 +20,7 @@ export default function ProductsPage() {
   return (
     <div>
       <Pagination page={page} />
-      <Products />
+      <Products page={page} />
       <Pagination page={page} />
     </div>
   );
