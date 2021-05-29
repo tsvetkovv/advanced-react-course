@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { ChangeEvent } from "react";
 
 function FormItem({
   name,
@@ -13,7 +14,8 @@ function FormItem({
   label: string;
   placeholder: string;
   type: "text" | "number" | "file" | "textarea";
-  onChange: () => void;
+  // eslint-disable-next-line no-unused-vars
+  onChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
 }) {
   return (
     <label htmlFor={name}>

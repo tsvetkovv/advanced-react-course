@@ -10,9 +10,10 @@ export default class MyDocument extends Document {
     renderPage,
   }: DocumentContext): Promise<DocumentInitialProps> {
     const sheet = new ServerStyleSheet();
-    const page = renderPage((App) => (props) =>
-      // eslint-disable-next-line react/jsx-props-no-spreading
-      sheet.collectStyles(<App {...props} />)
+    const page = renderPage(
+      (App) => (props) =>
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        sheet.collectStyles(<App {...props} />)
     );
     const styles = sheet.getStyleElement();
 
