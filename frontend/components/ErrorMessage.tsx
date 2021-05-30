@@ -18,7 +18,22 @@ const ErrorStyles = styled.div`
   }
 `;
 
-const DisplayError = ({ error }: { error: ApolloError }) => {
+function getErrorStyles(message?: string) {
+  return (
+    <ErrorStyles>
+      <p data-test="graphql-error">
+        <strong>Shoot!</strong>
+        {message}
+      </p>
+    </ErrorStyles>
+  );
+}
+
+const DisplayError = ({ error }: { error: ApolloError | string }) => {
+  if (typeof error === "string") {
+    return getErrorStyles(error);
+  }
+
   if (!error || !error.message) {
     return null;
   }
@@ -36,13 +51,8 @@ const DisplayError = ({ error }: { error: ApolloError }) => {
       </>
     );
   }
-  return (
-    <ErrorStyles>
-      <p data-test="graphql-error">
-        <strong>Shoot!</strong>
-        {error.networkError?.message?.replace("GraphQL error: ", "")}
-      </p>
-    </ErrorStyles>
+  return getErrorStyles(
+    error.networkError?.message?.replace("GraphQL error: ", "")
   );
 };
 
@@ -51,18 +61,21 @@ DisplayError.defaultProps = {
 };
 
 DisplayError.propTypes = {
-  error: PropTypes.shape({
-    message: PropTypes.string,
-    response: PropTypes.objectOf(PropTypes.object),
-    graphQLErrors: PropTypes.arrayOf(
-      PropTypes.shape({
-        message: PropTypes.string.isRequired,
-      })
-    ),
-    networkError: PropTypes.shape({
+  error: PropTypes.oneOfType([
+    PropTypes.shape({
       message: PropTypes.string,
+      response: PropTypes.objectOf(PropTypes.object),
+      graphQLErrors: PropTypes.arrayOf(
+        PropTypes.shape({
+          message: PropTypes.string.isRequired,
+        })
+      ),
+      networkError: PropTypes.shape({
+        message: PropTypes.string,
+      }),
     }),
-  }),
+    PropTypes.string,
+  ]),
 };
 
 export default DisplayError;
