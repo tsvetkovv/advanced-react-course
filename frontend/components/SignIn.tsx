@@ -1,12 +1,13 @@
-import { FormEvent } from "react";
+import { FormEvent, useEffect } from "react";
 import { gql, useMutation } from "@apollo/client";
+import { useRouter } from "next/router";
 import Form from "./styles/Form";
 import useForm from "../lib/useForm";
-import { CURRENT_USER_QUERY } from "./User";
+import { CURRENT_USER_QUERY, useUser } from "./User";
 import DisplayError from "./ErrorMessage";
 
 const SIGNIN_MUTATION = gql(`
-mutation SIGN_IN($email: String!, $password: String!) {
+mutation SIGNIN($email: String!, $password: String!) {
   authenticate: authenticateUserWithPassword(email: $email, password: $password) {
     ... on UserAuthenticationWithPasswordSuccess {
       item {
@@ -50,7 +51,8 @@ function isSuccess(
   return !!result && "item" in result;
 }
 
-export function SignIn() {
+function SignIn() {
+  const router = useRouter();
   const { inputs, handleChange, resetForm } = useForm({
     email: "",
     password: "",
@@ -69,13 +71,19 @@ export function SignIn() {
     const { email, password } = inputs;
     if (email && password) {
       const submitResponse = await signin({ variables: { email, password } });
-      if (submitResponse) {
-        if (isSuccess(submitResponse.data?.authenticate)) {
-          resetForm();
-        }
+      if (submitResponse && isSuccess(submitResponse.data?.authenticate)) {
+        resetForm();
+        // await router.push("/");
       }
     }
   }
+
+  const user = useUser();
+  useEffect(() => {
+    if (user) {
+      router.push("/");
+    }
+  }, [user]);
 
   const authError = !isSuccess(data?.authenticate)
     ? data?.authenticate?.message
