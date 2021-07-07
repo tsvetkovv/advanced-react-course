@@ -7,6 +7,7 @@ import { Cart as CartModel } from "../models/Cart";
 import formatMoney from "../lib/formatMoney";
 import calcTotalPrice from "../lib/calcTotalPrice";
 import { useCart } from "../lib/cartState";
+import CloseButton from "./styles/CloseButton";
 
 const CartItemStyles = styled.li`
   padding: 1rem 0;
@@ -47,16 +48,18 @@ function CartItem({ cartItem }: { cartItem: CartModel }) {
 
 export default function Cart(): ReactElement | null {
   const me = useUser();
+  const { cartOpen, closeCart } = useCart();
 
   if (!me) {
     return null;
   }
 
   return (
-    <CartStyles open>
+    <CartStyles open={cartOpen}>
       <header>
         <Supreme>{me.name}&apos;s Cart</Supreme>
       </header>
+      <CloseButton onClick={closeCart}>&times;</CloseButton>
       <ul>
         {me.cart.map((cart) => (
           <CartItem key={cart.id} cartItem={cart} />
