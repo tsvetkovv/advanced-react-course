@@ -9,6 +9,7 @@ import { User } from './schemas/User';
 import { Product } from './schemas/Product';
 import { ProductImage } from './schemas/ProductImage';
 import { insertSeedData } from './seed-data';
+import { sendPasswordResetEmail } from './lib/mail';
 
 if (!process.env.DATABASE_URL) {
   throw new Error('No DATABASE_URL');
@@ -34,7 +35,9 @@ const { withAuth } = createAuth({
     // TODO Add in initial roles here
   },
   passwordResetLink: {
-    sendToken() {},
+    async sendToken({ token, identity }) {
+      await sendPasswordResetEmail(token, identity);
+    },
   },
 });
 
