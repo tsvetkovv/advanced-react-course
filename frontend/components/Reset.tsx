@@ -33,7 +33,7 @@ function Reset({ token }: { token: string }) {
     token: "",
   });
 
-  const [reset, { data, error }] =
+  const [reset, { data, error, loading }] =
     useMutation<resetMutationResponse, resetMutationVariables>(RESET_MUTATION);
 
   const successfulError = data?.redeemUserPasswordResetToken?.code
@@ -62,7 +62,7 @@ function Reset({ token }: { token: string }) {
     <Form method="POST" onSubmit={handleSubmit}>
       <h2>Reset your password</h2>
       <DisplayError error={error || successfulError} />
-      <fieldset>
+      <fieldset disabled={loading} aria-busy={loading}>
         {data?.redeemUserPasswordResetToken === null && (
           <p>Success! You password was set</p>
         )}

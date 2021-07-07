@@ -58,7 +58,7 @@ function SignIn() {
     password: "",
   });
 
-  const [signin, { data, error }] = useMutation<
+  const [signin, { data, error, loading }] = useMutation<
     singinMutationResponse,
     singinMutationVariables
   >(SIGNIN_MUTATION, {
@@ -93,7 +93,7 @@ function SignIn() {
     <Form method="POST" onSubmit={handleSubmit}>
       <h2>Sign Into Your Account</h2>
       <DisplayError error={authError} />
-      <fieldset>
+      <fieldset disabled={loading} aria-busy={loading}>
         <label htmlFor="email">
           Email
           <input

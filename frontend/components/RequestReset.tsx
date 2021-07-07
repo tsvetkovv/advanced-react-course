@@ -26,7 +26,7 @@ function RequestReset() {
     email: "",
   });
 
-  const [requestReset, { data, error }] = useMutation<
+  const [requestReset, { data, error, loading }] = useMutation<
     requestResetMutationResponse,
     requestResetMutationVariables
   >(REQUEST_RESET_MUTATION);
@@ -53,7 +53,7 @@ function RequestReset() {
     <Form method="POST" onSubmit={handleSubmit}>
       <h2>Request a Password Reset</h2>
       <DisplayError error={error} />
-      <fieldset>
+      <fieldset disabled={loading} aria-busy={loading}>
         {data?.sendUserPasswordResetLink === null && (
           <p>If an email exists, the link was send!</p>
         )}
