@@ -5,9 +5,7 @@ import {
   withItemData,
 } from '@keystone-next/keystone/session';
 import { createAuth } from '@keystone-next/auth';
-import { User } from './schemas/User';
-import { Product } from './schemas/Product';
-import { ProductImage } from './schemas/ProductImage';
+import schemas from './schemas';
 import { insertSeedData } from './seed-data';
 import { sendPasswordResetEmail } from './lib/mail';
 
@@ -62,11 +60,7 @@ export default withAuth(
         }
       },
     },
-    lists: createSchema({
-      User,
-      Product,
-      ProductImage,
-    }),
+    lists: createSchema(schemas),
     ui: {
       // Show the UI only for people who pass this test
       isAccessAllowed: ({ session }) => session && 'data' in session,
