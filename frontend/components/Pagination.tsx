@@ -32,7 +32,9 @@ function Pagination({ page }: { page: number }) {
   return (
     <PaginationStyles>
       <Head>
-        <title>Sick Fits - Page {page} of ____</title>
+        <title>
+          Sick Fits - Page {page} of {pageCount}
+        </title>
       </Head>
       <Link href={`/products/${page - 1}`}>
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
