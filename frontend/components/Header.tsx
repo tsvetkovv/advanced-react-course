@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
+import { ReactElement } from "react";
 import Nav from "./Nav";
 import Cart from "./Cart";
 
@@ -34,7 +35,7 @@ const HeaderStyles = styled.header`
   }
 `;
 
-export default function Header() {
+export default function Header(): ReactElement {
   return (
     <HeaderStyles>
       <div className="bar">

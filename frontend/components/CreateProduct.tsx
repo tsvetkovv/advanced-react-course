@@ -1,6 +1,6 @@
 import gql from "graphql-tag";
 import { useMutation } from "@apollo/client";
-import { FormEvent } from "react";
+import { FormEvent, ReactElement } from "react";
 import { useRouter } from "next/router";
 import useForm from "../lib/useForm";
 import FormItem from "./FormItem";
@@ -35,7 +35,7 @@ const CREATE_PRODUCT_MUTATION = gql`
   }
 `;
 
-function CreateProduct() {
+function CreateProduct(): ReactElement {
   const { inputs, handleChange, clearForm } = useForm<ProductForm>({
     name: "Nice Shoes",
     price: 123,

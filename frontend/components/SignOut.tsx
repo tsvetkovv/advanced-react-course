@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { ReactElement, useEffect } from "react";
 import { gql, useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
 import { CURRENT_USER_QUERY } from "./User";
@@ -13,7 +13,7 @@ interface signOutMutationResponse {
   endSession: boolean;
 }
 
-function SignOut() {
+function SignOut(): ReactElement {
   const [signOut] = useMutation<signOutMutationResponse>(SIGNOUT_MUTATION, {
     refetchQueries: [{ query: CURRENT_USER_QUERY }],
   });

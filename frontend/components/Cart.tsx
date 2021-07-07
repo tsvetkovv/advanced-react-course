@@ -1,10 +1,12 @@
 import styled from "styled-components";
+import { ReactElement } from "react";
 import CartStyles from "./styles/CartStyles";
 import { useUser } from "./User";
 import Supreme from "./styles/Supreme";
 import { Cart as CartModel } from "../models/Cart";
 import formatMoney from "../lib/formatMoney";
 import calcTotalPrice from "../lib/calcTotalPrice";
+import { useCart } from "../lib/cartState";
 
 const CartItemStyles = styled.li`
   padding: 1rem 0;
@@ -43,7 +45,7 @@ function CartItem({ cartItem }: { cartItem: CartModel }) {
   );
 }
 
-export default function Cart() {
+export default function Cart(): ReactElement | null {
   const me = useUser();
 
   if (!me) {

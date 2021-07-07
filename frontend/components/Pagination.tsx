@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import gql from "graphql-tag";
 import { useQuery } from "@apollo/client";
+import { ReactElement } from "react";
 import PaginationStyles from "./styles/PaginationStyles";
 import DisplayError from "./ErrorMessage";
 import { perPage } from "../config";
@@ -22,7 +23,7 @@ export const PAGINATION_QUERY = gql`
   }
 `;
 
-function Pagination({ page }: { page: number }) {
+function Pagination({ page }: { page: number }): ReactElement {
   const { error, loading, data } =
     useQuery<PaginationQueryData>(PAGINATION_QUERY);
   if (loading) return <p>Loading...</p>;

@@ -1,6 +1,6 @@
 import gql from "graphql-tag";
 import { useMutation, useQuery } from "@apollo/client";
-import { FormEvent } from "react";
+import { FormEvent, ReactElement } from "react";
 import PropTypes from "prop-types";
 import useForm from "../lib/useForm";
 import FormItem from "./FormItem";
@@ -49,7 +49,7 @@ interface ProductMutationResult {
   createProduct: Pick<Product, "id">;
 }
 
-function UpdateProduct({ id }: { id: string }) {
+function UpdateProduct({ id }: { id: string }): ReactElement {
   const { data, loading, error } = useQuery<{ Product: Product }>(
     SINGLE_ITEM_QUERY,
     {

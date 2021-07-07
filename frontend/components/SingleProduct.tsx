@@ -3,6 +3,7 @@ import gql from "graphql-tag";
 import { useQuery } from "@apollo/client";
 import Head from "next/head";
 import styled from "styled-components";
+import { ReactElement } from "react";
 import { Product } from "../models/Product";
 import DisplayError from "./ErrorMessage";
 
@@ -36,7 +37,7 @@ const SINGLE_ITEM_QUERY = gql`
   }
 `;
 
-function SingleProductPage({ id }: { id: string }) {
+function SingleProductPage({ id }: { id: string }): ReactElement {
   const { data, loading, error } = useQuery<{ Product: Product }>(
     SINGLE_ITEM_QUERY,
     {

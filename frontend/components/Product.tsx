@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import Link from "next/link";
+import { ReactElement } from "react";
 import { Product as ProductType } from "../models/Product";
 import ItemStyles from "./styles/ItemStyles";
 import Title from "./styles/Title";
@@ -7,7 +8,7 @@ import PriceTag from "./styles/PriceTag";
 import formatMoney from "../lib/formatMoney";
 import DeleteProduct from "./DeleteProduct";
 
-function Product({ product }: { product: ProductType }) {
+function Product({ product }: { product: ProductType }): ReactElement {
   return (
     <ItemStyles>
       {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}

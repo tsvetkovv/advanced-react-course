@@ -2,6 +2,7 @@ import gql from "graphql-tag";
 import { useQuery } from "@apollo/client";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import { ReactElement } from "react";
 import { Product as ProductType } from "../models/Product";
 import Product from "./Product";
 import { perPage } from "../config";
@@ -38,7 +39,7 @@ const ProductsListStyles = styled.div`
   grid-gap: 60px;
 `;
 
-export function Products({ page }: { page: number }) {
+export function Products({ page }: { page: number }): ReactElement {
   const { data, error, loading } = useQuery<ProductData, ProductVariables>(
     ALL_PRODUCTS_QUERY,
     {

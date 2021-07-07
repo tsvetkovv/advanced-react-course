@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import PropTypes from "prop-types";
 import styled, { createGlobalStyle } from "styled-components";
 import Header from "./Header";
@@ -52,7 +52,11 @@ const InnerStyles = styled.div`
   padding: 2rem;
 `;
 
-export default function Page({ children }: { children: React.ReactNode }) {
+export default function Page({
+  children,
+}: {
+  children: React.ReactNode;
+}): ReactElement {
   return (
     <div>
       <GlobalStyles />

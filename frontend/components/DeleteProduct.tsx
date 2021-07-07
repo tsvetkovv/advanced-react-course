@@ -1,7 +1,7 @@
 import gql from "graphql-tag";
 import { useMutation } from "@apollo/client";
 import PropTypes from "prop-types";
-import React from "react";
+import React, { ReactElement } from "react";
 import { Product } from "../models/Product";
 
 interface ProductMutationResult {
@@ -25,7 +25,7 @@ function DeleteProduct({
 }: {
   id: string;
   children: React.ReactNode;
-}) {
+}): ReactElement {
   const [deleteProduct, { loading }] = useMutation<
     ProductMutationResult,
     UpdateVariables

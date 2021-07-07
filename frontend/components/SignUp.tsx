@@ -1,4 +1,4 @@
-import { FormEvent } from "react";
+import { FormEvent, ReactElement } from "react";
 import { gql, useMutation } from "@apollo/client";
 import Form from "./styles/Form";
 import useForm from "../lib/useForm";
@@ -29,7 +29,7 @@ interface singUpMutationVariables {
   password: string;
 }
 
-function SignUp() {
+function SignUp(): ReactElement {
   const { inputs, handleChange, resetForm } = useForm({
     email: "",
     name: "",

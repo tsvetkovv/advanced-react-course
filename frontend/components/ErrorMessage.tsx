@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import PropTypes from "prop-types";
 import { ApolloError } from "@apollo/client";
+import { ReactElement } from "react";
 
 const ErrorStyles = styled.div`
   padding: 2rem;
@@ -19,7 +20,7 @@ const ErrorStyles = styled.div`
   }
 `;
 
-function getErrorStyles(message?: string) {
+function getErrorStyles(message?: string): ReactElement {
   return (
     <ErrorStyles>
       <p data-test="graphql-error">
@@ -30,7 +31,11 @@ function getErrorStyles(message?: string) {
   );
 }
 
-const DisplayError = ({ error }: { error: ApolloError | string }) => {
+const DisplayError = ({
+  error,
+}: {
+  error: ApolloError | string;
+}): ReactElement | null => {
   if (typeof error === "string") {
     return getErrorStyles(error);
   }

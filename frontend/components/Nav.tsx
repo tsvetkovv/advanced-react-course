@@ -1,8 +1,9 @@
 import Link from "next/link";
+import { ReactElement } from "react";
 import NavStyles from "./styles/NavStyles";
 import { User, useUser } from "./User";
 
-export default function Nav() {
+export default function Nav(): ReactElement {
   const user: User | null = useUser();
 
   // noinspection HtmlUnknownTarget

@@ -1,4 +1,4 @@
-import { FormEvent, useEffect } from "react";
+import { FormEvent, ReactElement, useEffect } from "react";
 import { gql, useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
 import Form from "./styles/Form";
@@ -51,7 +51,7 @@ function isSuccess(
   return !!result && "item" in result;
 }
 
-function SignIn() {
+function SignIn(): ReactElement {
   const router = useRouter();
   const { inputs, handleChange, resetForm } = useForm({
     email: "",

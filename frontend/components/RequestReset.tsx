@@ -1,4 +1,4 @@
-import { FormEvent } from "react";
+import { FormEvent, ReactElement } from "react";
 import { gql, useMutation } from "@apollo/client";
 import Form from "./styles/Form";
 import useForm from "../lib/useForm";
@@ -21,7 +21,7 @@ interface requestResetMutationVariables {
   email: string;
 }
 
-function RequestReset() {
+function RequestReset(): ReactElement {
   const { inputs, handleChange, resetForm } = useForm({
     email: "",
   });
