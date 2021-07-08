@@ -8,6 +8,7 @@ import { createAuth } from '@keystone-next/auth';
 import schemas from './schemas';
 import { insertSeedData } from './seed-data';
 import { sendPasswordResetEmail } from './lib/mail';
+import { extendGraphqlSchema } from './mutations';
 
 if (!process.env.DATABASE_URL) {
   throw new Error('No DATABASE_URL');
@@ -61,6 +62,7 @@ export default withAuth(
       },
     },
     lists: createSchema(schemas),
+    extendGraphqlSchema,
     ui: {
       // Show the UI only for people who pass this test
       isAccessAllowed: ({ session }) => session && 'data' in session,

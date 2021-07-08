@@ -7,6 +7,7 @@ import Title from "./styles/Title";
 import PriceTag from "./styles/PriceTag";
 import formatMoney from "../lib/formatMoney";
 import DeleteProduct from "./DeleteProduct";
+import AddToCart from "./AddToCart";
 
 function Product({ product }: { product: ProductType }): ReactElement {
   return (
@@ -32,6 +33,7 @@ function Product({ product }: { product: ProductType }): ReactElement {
         >
           Edit ✏️
         </Link>
+        <AddToCart id={product.id} />
         <DeleteProduct id={product.id}>Delete</DeleteProduct>
       </div>
     </ItemStyles>
