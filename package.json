@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "engines": {
-    "node": "14.x"
+    "node": "14.x",
+    "npm": "7.x"
   },
   "scripts": {
-    "start": "cd backend/ && npm install && npm run start",
-    "build": "cd frontend/ && npm install && npm run build"
+    "start": "pm2-runtime start ecosystem.config.js --env production",
+    "build": "cd backend/ && npm install && npm run build"
   },
   "cacheDirectories": [
     "node_modules",
@@ -15,6 +16,7 @@
     "frontend/node_modules"
   ],
   "dependencies": {
+    "pm2": "^5.1.0"
   },
   "repository": {
     "type": "git",
