@@ -9,7 +9,7 @@ import { onError } from "@apollo/link-error";
 import { getDataFromTree } from "@apollo/client/react/ssr";
 import { createUploadLink } from "apollo-upload-client";
 import withApollo, { InitApolloClient } from "next-with-apollo";
-import { endpoint, prodEndpoint } from "../config";
+import { endpoint } from "../config";
 import paginationField from "./paginationField";
 
 const createClient: InitApolloClient<NormalizedCacheObject> = ({
@@ -36,7 +36,7 @@ const createClient: InitApolloClient<NormalizedCacheObject> = ({
       }),
       // this uses apollo-link-http under the hood, so all the options here come from that package
       createUploadLink({
-        uri: process.env.NODE_ENV === "development" ? endpoint : prodEndpoint,
+        uri: endpoint,
         fetchOptions: {
           credentials: "include",
         },
