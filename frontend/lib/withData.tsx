@@ -17,6 +17,7 @@ const createClient: InitApolloClient<NormalizedCacheObject> = ({
   initialState,
 }) =>
   new ApolloClient({
+    uri: endpoint,
     link: ApolloLink.from([
       onError(({ graphQLErrors, networkError }) => {
         if (graphQLErrors) {
