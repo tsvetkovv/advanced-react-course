@@ -15,8 +15,9 @@ import paginationField from "./paginationField";
 const createClient: InitApolloClient<NormalizedCacheObject> = ({
   headers,
   initialState,
-}) =>
-  new ApolloClient({
+}) => {
+  console.log("!!!", endpoint);
+  return new ApolloClient({
     uri: endpoint,
     link: ApolloLink.from([
       onError(({ graphQLErrors, networkError }) => {
@@ -56,5 +57,6 @@ const createClient: InitApolloClient<NormalizedCacheObject> = ({
     }).restore(initialState || {}),
     connectToDevTools: process.env.NODE_ENV === "development",
   });
+};
 
 export default withApollo(createClient, { getDataFromTree });
