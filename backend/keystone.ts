@@ -41,11 +41,12 @@ const { withAuth } = createAuth({
   },
 });
 
+console.log('process.env.FRONTEND_URL', process.env.FRONTEND_URL);
 export default withAuth(
   config({
     server: {
       cors: {
-        origin: [process.env.FRONTEND_URL],
+        origin: process.env.FRONTEND_URL,
         credentials: true,
       },
     },
