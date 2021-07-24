@@ -21,6 +21,7 @@ if (!process.env.COOKIE_SECRET) {
 const databaseURL = process.env.DATABASE_URL;
 
 const sessionConfig = {
+  secure: false,
   maxAge: 60 * 60 * 24 * 360,
   secret: process.env.COOKIE_SECRET,
 };
@@ -44,7 +45,7 @@ export default withAuth(
   config({
     server: {
       cors: {
-        origin: [process.env.FRONTEND_URL],
+        origin: process.env.FRONTEND_URL,
         credentials: true,
       },
     },
