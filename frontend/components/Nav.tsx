@@ -3,6 +3,7 @@ import { ReactElement } from "react";
 import NavStyles from "./styles/NavStyles";
 import { User, useUser } from "./User";
 import { useCart } from "../lib/cartState";
+import CartCount from "./CartCount";
 
 export default function Nav(): ReactElement {
   const user: User | null = useUser();
@@ -20,6 +21,12 @@ export default function Nav(): ReactElement {
           <Link href="/signout">Sign Out</Link>
           <button type="button" onClick={openCart}>
             My Cart
+            <CartCount
+              count={user.cart.reduce(
+                (tally, cartItem) => tally + cartItem.quantity,
+                0
+              )}
+            />
           </button>
         </>
       )}
