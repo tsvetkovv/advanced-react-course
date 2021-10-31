@@ -48,6 +48,7 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^13.1.9",
     "@types/apollo-upload-client": "^14.1.0",
+    "@types/lodash.debounce": "^4.0.6",
     "@types/next": "^9.0.0",
     "@types/node": "^15.6.1",
     "@types/nprogress": "^0.2.0",
