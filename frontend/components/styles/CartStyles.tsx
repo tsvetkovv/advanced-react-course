@@ -6,7 +6,6 @@ export interface CartStylesProps {
 
 const CartStyles = styled.div<CartStylesProps>`
   padding: 20px;
-  position: relative;
   background: white;
   position: fixed;
   height: 100%;
@@ -31,8 +30,6 @@ const CartStyles = styled.div<CartStylesProps>`
     border-top: 10px double var(--black);
     margin-top: 2rem;
     padding-top: 2rem;
-    display: grid;
-    grid-template-columns: auto auto;
     align-items: center;
     font-size: 3rem;
     font-weight: 900;
